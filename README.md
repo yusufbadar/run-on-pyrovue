@@ -1,6 +1,6 @@
-# Run on pyrovue
+# Run on Pyrovue
 
-[pyrovue](https://pyrovue.com) runs a GitHub or GitLab repository in an isolated box in the cloud. You paste a link, it works out how to install and start the project, and you get the running app with a live preview, a terminal, the files and a map of the code. Nothing is installed on your computer.
+[Pyrovue](https://pyrovue.com) runs a GitHub or GitLab repository in an isolated box in the cloud. You paste a link, it works out how to install and start the project, and you get the running app with a live preview, a terminal, the files and a map of the code. Nothing is installed on your computer.
 
 This repository holds the public pieces you can use from your own project: the run links, the README badge, the `pyrovue.json` format with a JSON Schema and examples, and a GitHub Actions workflow that adds a run link to every pull request.
 
@@ -21,20 +21,20 @@ Opening a link shows the repository and asks the visitor to sign in, then starts
 
 ## Add the badge to your README
 
-[![Run on pyrovue](https://pyrovue.com/badge.svg)](https://pyrovue.com/button)
+[![Run on Pyrovue](https://pyrovue.com/badge.svg)](https://pyrovue.com/button)
 
 Replace `OWNER/REPO` with your repository, or let the [button page](https://pyrovue.com/button) write it for you.
 
 Markdown:
 
 ```markdown
-[![Run on pyrovue](https://pyrovue.com/badge.svg)](https://pyrovue.com/github.com/OWNER/REPO?ref=badge)
+[![Run on Pyrovue](https://pyrovue.com/badge.svg)](https://pyrovue.com/github.com/OWNER/REPO?ref=badge)
 ```
 
 HTML:
 
 ```html
-<a href="https://pyrovue.com/github.com/OWNER/REPO?ref=badge"><img src="https://pyrovue.com/badge.svg" alt="Run on pyrovue" width="132" height="28"></a>
+<a href="https://pyrovue.com/github.com/OWNER/REPO?ref=badge"><img src="https://pyrovue.com/badge.svg" alt="Run on Pyrovue" width="132" height="28"></a>
 ```
 
 reStructuredText:
@@ -42,14 +42,14 @@ reStructuredText:
 ```rst
 .. image:: https://pyrovue.com/badge.svg
    :target: https://pyrovue.com/github.com/OWNER/REPO?ref=badge
-   :alt: Run on pyrovue
+   :alt: Run on Pyrovue
 ```
 
 ## pyrovue.json
 
-Most repositories need no configuration. pyrovue reads what the repository already says about itself: package files, lockfiles, the README, a Dockerfile, a Procfile, a Compose file and more.
+Most repositories need no configuration. Pyrovue reads what the repository already says about itself: package files, lockfiles, the README, a Dockerfile, a Procfile, a Compose file and more.
 
-When your project needs something those files don't show, such as a migration before the first start, put a `pyrovue.json` at the root of the repository. pyrovue uses it instead of guessing. Every field is optional.
+When your project needs something those files don't show, such as a migration before the first start, put a `pyrovue.json` at the root of the repository. Pyrovue uses it instead of guessing. Every field is optional.
 
 ```json
 {
@@ -89,7 +89,7 @@ The repository is cloned to `/workspace` inside the box.
 
 ### Editor completion
 
-[`pyrovue.schema.json`](pyrovue.schema.json) is a JSON Schema for the file. Add a `$schema` line and editors such as VS Code will complete the fields and flag mistakes. pyrovue ignores fields it doesn't know, so the line is safe to keep.
+[`pyrovue.schema.json`](pyrovue.schema.json) is a JSON Schema for the file. Add a `$schema` line and editors such as VS Code will complete the fields and flag mistakes. Pyrovue ignores fields it doesn't know, so the line is safe to keep.
 
 ```json
 {
@@ -131,7 +131,7 @@ Not today:
 - [The Code Map](https://pyrovue.com/code-map)
 - [Security](https://pyrovue.com/security)
 - [Guides](https://pyrovue.com/blog)
-- [How pyrovue compares](https://pyrovue.com/alternatives) with GitHub Codespaces, CodeSandbox, Replit, Binder and others
+- [How Pyrovue compares](https://pyrovue.com/alternatives) with GitHub Codespaces, CodeSandbox, Replit, Binder and others
 - [llms.txt](https://pyrovue.com/llms.txt), the same links for coding agents
 
 Questions and bug reports are welcome in this repository's issues, or at hello@pyrovue.com.

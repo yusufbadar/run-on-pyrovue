@@ -1,8 +1,8 @@
-# Comments a link that runs each new pull request in a fresh box on pyrovue.
+# Comments a link that runs each new pull request in a fresh box on Pyrovue.
 # It only comments: it never checks out or runs the pull request's code, which keeps pull_request_target safe.
 # Do not add a checkout step to this workflow.
 # pull_request_target runs this file from the default branch, so merge it there first.
-name: Run on pyrovue
+name: Run on Pyrovue
 on:
   pull_request_target:
     types: [opened, reopened]
@@ -17,8 +17,8 @@ jobs:
           script: |
             const origin = "https://pyrovue.com";
             const marker = "<!-- pyrovue-run-pr -->";
-            const badge = "[![Run on pyrovue](https://pyrovue.com/badge.svg)]";
-            const text = "Run this pull request in a fresh box on pyrovue. It runs the code in this pull request.";
+            const badge = "[![Run on Pyrovue](https://pyrovue.com/badge.svg)]";
+            const text = "Run this pull request in a fresh box on Pyrovue. It runs the code in this pull request.";
             const { owner, repo } = context.repo;
             const number = context.payload.pull_request.number;
             const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: number, per_page: 100 });

@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://raw.githubusercontent.com/yusufbadar/run-on-pyrovue/main/pyrovue.schema.json",
   "title": "pyrovue.json",
-  "description": "Tells pyrovue (https://pyrovue.com) how to install and start a repository. Place it at the repository's root. Every field is optional.",
+  "description": "Tells Pyrovue (https://pyrovue.com) how to install and start a repository. Place it at the repository's root. Every field is optional.",
   "type": "object",
   "properties": {
     "$schema": { "type": "string" },
