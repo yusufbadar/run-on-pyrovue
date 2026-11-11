@@ -130,6 +130,8 @@ Not today:
 - [Run a GitHub repo online](https://pyrovue.com/run-github-repo-online)
 - [The Code Map](https://pyrovue.com/code-map)
 - [Security](https://pyrovue.com/security)
+- [How Pyrovue works](https://pyrovue.com/blog/how-pyrovue-works): the setup engine, the repair rules and the Code Map, in detail
+- [A GitHub link should be enough to run the code](https://pyrovue.com/blog/a-github-link-should-be-enough): why it was built
 - [Guides](https://pyrovue.com/blog)
 - [How Pyrovue compares](https://pyrovue.com/alternatives) with GitHub Codespaces, CodeSandbox, Replit, Binder and others
 - [llms.txt](https://pyrovue.com/llms.txt), the same links for coding agents
