@@ -1,0 +1,12 @@
+{
+  "$schema": "https://raw.githubusercontent.com/yusufbadar/run-on-pyrovue/main/pyrovue.schema.json",
+  "setup": [
+    "npm install"
+  ],
+  "start": "npm run dev",
+  "port": 5173,
+  "stack": [
+    "Node",
+    "Vite"
+  ]
+}

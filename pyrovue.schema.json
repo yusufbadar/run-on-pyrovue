@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/yusufbadar/run-on-pyrovue/main/pyrovue.schema.json",
+  "title": "pyrovue.json",
+  "description": "Tells pyrovue (https://pyrovue.com) how to install and start a repository. Place it at the repository's root. Every field is optional.",
+  "type": "object",
+  "properties": {
+    "$schema": { "type": "string" },
+    "setup": {
+      "description": "Shell commands, run in order from cwd, before the app starts.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "start": {
+      "description": "The command that serves the app. Leave it out for a library or a command-line tool.",
+      "type": "string"
+    },
+    "port": {
+      "description": "The port the app listens on.",
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 65535
+    },
+    "env": {
+      "description": "Environment variables for the setup commands and the app.",
+      "type": "object",
+      "additionalProperties": { "type": ["string", "number", "boolean"] }
+    },
+    "cwd": {
+      "description": "A folder inside the repository to run from, relative to its root.",
+      "type": "string"
+    },
+    "previewPath": {
+      "description": "The path or query the preview opens first, on the app's own origin: starts with /, ? or #.",
+      "type": "string",
+      "pattern": "^(/(?!/)|[?#])"
+    },
+    "stack": {
+      "description": "Labels shown on the box, such as Node or Vite.",
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "services": {
+      "description": "Background programs that start before start, such as a backend for the frontend that start runs. Used only when start is set.",
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "required": ["start"],
+        "properties": {
+          "cwd": {
+            "description": "The service's folder, from the repository's root. A plain relative path with no '..'.",
+            "type": "string",
+            "pattern": "^[\\w./-]*$"
+          },
+          "start": { "description": "The command that runs the service.", "type": "string", "minLength": 1 },
+          "port": { "description": "The port the service listens on.", "type": "integer", "minimum": 1, "maximum": 65535 }
+        }
+      }
+    }
+  }
+}

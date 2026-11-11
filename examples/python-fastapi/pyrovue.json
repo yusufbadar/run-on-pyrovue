@@ -1,0 +1,13 @@
+{
+  "$schema": "https://raw.githubusercontent.com/yusufbadar/run-on-pyrovue/main/pyrovue.schema.json",
+  "setup": [
+    "pip install -r requirements.txt"
+  ],
+  "start": "uvicorn main:app --port 8000",
+  "port": 8000,
+  "previewPath": "/docs",
+  "stack": [
+    "Python",
+    "FastAPI"
+  ]
+}

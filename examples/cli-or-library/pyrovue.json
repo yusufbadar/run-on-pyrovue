@@ -1,0 +1,9 @@
+{
+  "$schema": "https://raw.githubusercontent.com/yusufbadar/run-on-pyrovue/main/pyrovue.schema.json",
+  "setup": [
+    "pip install -e ."
+  ],
+  "stack": [
+    "Python"
+  ]
+}

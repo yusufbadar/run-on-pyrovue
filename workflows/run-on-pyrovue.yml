@@ -1,0 +1,29 @@
+# Comments a link that runs each new pull request in a fresh box on pyrovue.
+# It only comments: it never checks out or runs the pull request's code, which keeps pull_request_target safe.
+# Do not add a checkout step to this workflow.
+# pull_request_target runs this file from the default branch, so merge it there first.
+name: Run on pyrovue
+on:
+  pull_request_target:
+    types: [opened, reopened]
+permissions:
+  pull-requests: write
+jobs:
+  link:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const origin = "https://pyrovue.com";
+            const marker = "<!-- pyrovue-run-pr -->";
+            const badge = "[![Run on pyrovue](https://pyrovue.com/badge.svg)]";
+            const text = "Run this pull request in a fresh box on pyrovue. It runs the code in this pull request.";
+            const { owner, repo } = context.repo;
+            const number = context.payload.pull_request.number;
+            const comments = await github.paginate(github.rest.issues.listComments, { owner, repo, issue_number: number, per_page: 100 });
+            // One comment per pull request: reopening it adds none.
+            if (comments.some((c) => c.user?.type === "Bot" && c.body?.includes(marker))) return;
+            const link = `${origin}/github.com/${owner}/${repo}/pull/${number}?ref=pr`;
+            const body = [marker, badge + "(" + link + ")", "", text].join("\n");
+            await github.rest.issues.createComment({ owner, repo, issue_number: number, body });
